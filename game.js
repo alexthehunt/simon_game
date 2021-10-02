@@ -9,6 +9,8 @@ $(".btn").click(function () {
   console.log(userClickedPattern);
 
   playSound(userChosenColour);
+
+  animatePress(userChosenColour);
 });
 
 function nextSequence() {
@@ -32,8 +34,8 @@ function playSound(name) {
 }
 
 function animatePress(currentColor) {
-  $("#" + currentColor).click(function () {
     $("#" + currentColor).addClass("pressed");
-    setTimeout(() => {}, timeout);
-  });
-}
+    setTimeout(function () {
+      $("#" + currentColor).removeClass("pressed")
+    }, 100)
+  };
