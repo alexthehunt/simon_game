@@ -1,4 +1,5 @@
 const userClickedPattern = [];
+let level = 0;
 
 $(".btn").click(function () {
   // alert("I've been clicked!");
@@ -19,6 +20,7 @@ function nextSequence() {
   const randomChosenColor = buttonColors[randomNumber];
   const gamePattern = [];
 
+
   gamePattern.push(randomChosenColor);
 
   $("#" + randomChosenColor)
@@ -26,6 +28,8 @@ function nextSequence() {
     .fadeIn(100);
 
   playSound(randomChosenColor);
+
+  document.querySelector("h1").textContent = `Level ${level}`
 }
 
 function playSound(name) {
@@ -39,3 +43,16 @@ function animatePress(currentColor) {
       $("#" + currentColor).removeClass("pressed")
     }, 100)
   };
+
+  function checkAnswer(currentLevel) {
+
+  }
+
+
+document.addEventListener("keydown", function() {
+  if (level === 0) {
+    nextSequedssnce();
+    level++;
+  } else {
+    level++;
+  }});
